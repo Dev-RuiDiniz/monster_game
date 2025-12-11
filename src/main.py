@@ -2,7 +2,7 @@
 
 import pygame
 import sys
-from config import SCREEN_WIDTH, SCREEN_HEIGHT, TITLE, FPS, WHITE, BLACK
+from src.settings import SCREEN_WIDTH, SCREEN_HEIGHT, TITLE, FPS, WHITE, BLACK
 
 class Game:
     """
