@@ -52,13 +52,24 @@ class Game:
         pass
 
     def draw(self):
-        """Desenha todos os elementos na tela."""
-        self.screen.fill(BACKGROUND_COLOR) # Limpa o frame
+        """
+        Desenha todos os elementos na tela.
         
-        # if self.current_scene:
-        #     self.current_scene.draw(self.screen)
+        Ordem de desenho: Fundo -> Mapa -> Sprites -> UI/HUD.
+        """
         
-        # Finaliza o desenho e exibe o novo frame
+        # 1. Limpar a tela (Fundo)
+        # Usa a constante de cor de fundo definida em settings.py
+        self.screen.fill(BACKGROUND_COLOR) 
+        
+        # 2. Desenho de Elementos (Futuro: mapa, personagens, etc.)
+        # Exemplo de desenho de texto ou um retângulo para demonstrar
+        font = pygame.font.Font(None, 36)
+        text = font.render(f"Pykémon - FPS: {int(self.clock.get_fps())}", True, WHITE)
+        self.screen.blit(text, (10, 10))
+
+        # 3. Atualizar a tela (Flip)
+        # O comando flip() exibe o buffer de desenho na tela, tornando o frame visível.
         pygame.display.flip()
         
     def run(self):
