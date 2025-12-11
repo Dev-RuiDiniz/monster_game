@@ -38,13 +38,18 @@ class Game:
         print(f"Game iniciado com: {self.player_pokemon}")
 
     def handle_events(self):
-        """Gerencia todos os eventos de entrada (input) do usuário."""
+        """
+        Gerencia todos os eventos de entrada (input) do usuário.
+        Inclui o tratamento do evento de fechar a janela e pressionar ESC.
+        """
         for event in pygame.event.get():
+            # 1. Tratamento do Fechamento de Janela (Botão 'X')
             if event.type == pygame.QUIT:
                 self.running = False
             
+            # 2. Tratamento de Teclado
             if event.type == pygame.KEYDOWN:
-                # Exemplo de evento de teclado
+                # Tratamento do ESC (Escape Key)
                 if event.key == pygame.K_ESCAPE:
                     self.running = False
 
@@ -67,26 +72,20 @@ class Game:
         pygame.display.flip()
         
     def run(self):
-        """O loop principal do jogo. Onde o jogo executa as 3 etapas (Eventos, Update, Draw)."""
+        """O loop principal do jogo."""
         print("Iniciando Game Loop...")
         while self.running:
-            # 1. Manipulação de Eventos (Input)
-            self.handle_events()
-            
-            # 2. Atualização da Lógica (Processamento)
-            self.update()
-            
-            # 3. Desenho (Output)
-            self.draw()
-            
-            # Controla a taxa de quadros (Frame Rate)
-            self.clock.tick(FPS) 
+            # ...
+            pass # Lógica do Game Loop
+        
+        # Chamada final que encerra o Pygame e o sistema
+        self.quit()
 
         # Finalização limpa do Pygame
         self.quit()
 
     def quit(self):
-        """Encerra o Pygame e o sistema."""
+        """Encerra o Pygame e o sistema de forma limpa."""
         print("Encerrando Pygame...")
         pygame.quit()
         sys.exit()
