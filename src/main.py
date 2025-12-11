@@ -74,10 +74,20 @@ class Game:
         
     def run(self):
         """O loop principal (Game Loop) que coordena o jogo."""
+        print("Iniciando Game Loop...")
         while self.running:
+            # 1. Handle Events
             self.handle_events()
+            
+            # 2. Update Logic
             self.update()
+            
+            # 3. Draw Output
             self.draw()
+            
+            # 4. Limitação do FPS
+            # Chamada crucial: Isso atrasa o loop até que o tempo necessário 
+            # para atingir o FPS definido (60, por exemplo) tenha passado.
             self.clock.tick(FPS) 
 
         self.quit()
